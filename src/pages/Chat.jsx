@@ -7,6 +7,7 @@ import Welcome from '../components/Welcome';
 import ChatContainer from '../components/ChatContainer';
 import {allUsersRoute, host} from '../utils/APIRoutes'
 import {io} from "socket.io-client"
+import NavBar from '../components/NavBar';
 
 
 function Chat() {
@@ -63,7 +64,7 @@ function Chat() {
   return (
 
       <Container>
-        
+        <NavBar className="navbar"></NavBar>
         <div className="container">
         {/* passing contacts, currentuser and func handleChatChange as prop */}
         
@@ -93,13 +94,15 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  margin-top: auto;
   justify-content:center;
   align-items: center;
   gap : 1rem;
   background-color: #131324;
+  
   .container {
     color: white;
-    height : 85vh;
+    height : 83vh;
     width : 85vw;
     background-color: #00000076;
     display: grid;

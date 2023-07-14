@@ -10,11 +10,13 @@ import { setAvatarRoute } from "../utils/APIRoutes";
 
 
 function SetAvatar() {
+
     const api = `https://api.multiavatar.com/4645646`;
     const navigate = useNavigate();
     const [avatars, setAvatars] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [selectedAvatar, setSelectedAvatar] = useState(undefined);
+
     const toastOptions = {
       position: "bottom-right",
       autoClose: 8000,
@@ -29,36 +31,36 @@ function SetAvatar() {
       }
       else{
         const user = JSON.parse(localStorage.getItem("chat-app-user"));
-        if(user.isAvatarImageSet){
-          navigate("/");
-        }
+        // if(user.isAvatarImageSet){
+        //   navigate("/");
+        // }
       }
     },[]);
 
     const setProfilePicture = async () => {
-      if (selectedAvatar === undefined) {
-        toast.error("Please select an avatar", toastOptions);
-      } else {
-        const user = await JSON.parse(
-          localStorage.getItem("chat-app-user")
-        );
-  
-        const { data } = await axios.post(`${setAvatarRoute}/${user._id}`, {
-          image: avatars[selectedAvatar],
-        });
-
-        if (data.isSet) {
-          user.isAvatarImageSet = true;
-          user.avatarImage = data.image;
-          localStorage.setItem(
-            "chat-app-user",
-            JSON.stringify(user)
-          );
-          navigate("/");
+        if (selectedAvatar === undefined) {
+          toast.error("Please select an avatar", toastOptions);
         } else {
-          toast.error("Error setting avatar. Please try again.", toastOptions);
+          const user = await JSON.parse(
+            localStorage.getItem("chat-app-user")
+          );
+    
+          const { data } = await axios.post(`${setAvatarRoute}/${user._id}`, {
+            image: avatars[selectedAvatar],
+          });
+
+          if (data.isSet) {
+            user.isAvatarImageSet = true;
+            user.avatarImage = data.image;
+            localStorage.setItem (
+              "chat-app-user",
+              JSON.stringify(user)
+            );
+            navigate("/");
+          } else {
+            toast.error("Error setting avatar. Please try again.", toastOptions);
+          }
         }
-      }
     };
 
     useEffect(() => {
@@ -66,7 +68,7 @@ function SetAvatar() {
         try {
           const data = [];
           for (let i = 0; i < 4; i++) {
-            const response = await axios.get(`${api}/${Math.round(Math.random() * 100)}?apikey=pbe4KInQBRg2Tr`);
+            const response = await axios.get(`${api}/${Math.round(Math.random() * 100)}?apikey=tma6pr5lOhvgoK`);
             const buffer = Buffer.from(response.data);
             data.push(buffer.toString("base64"));
           }

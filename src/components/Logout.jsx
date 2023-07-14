@@ -12,7 +12,7 @@ export default function Logout() {
         navigate('/login');
     }
   return (
-    <Button onClick={handleLogout} ><BiPowerOff/> LOGOUT </Button>
+    <Button onClick={handleLogout} ><BiPowerOff/>logout</Button>
   )
 }
 
@@ -21,7 +21,7 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  padding: 0.5rem;
+  padding: 0.3rem;
   border-radius: 0.5rem;
   background-color: #9a86f3;
   border: none;
