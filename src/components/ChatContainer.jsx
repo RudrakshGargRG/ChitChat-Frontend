@@ -83,7 +83,9 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
 
     const handleViewProfile = () => 
     {
+      Navigate(`/friendProfile/${currentChat._id}`);
     };
+    
 
 
   return (

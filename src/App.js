@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Chat from './pages/Chat'
 import SetAvatar from './pages/SetAvatar'
 import UserProfile from './pages/UserProfile'
+import FriendProfile from './pages/FriendProfile'
 
 
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/setAvatar" element={<SetAvatar />} />
         <Route path="/userProfile" element={<UserProfile />} />
+        <Route path="/friendProfile/:userId" element={<FriendProfile/>} />
         <Route path='/' element = {<Chat />} />
       </Routes>
     </BrowserRouter>

@@ -52,10 +52,10 @@ function SetAvatar() {
           if (data.isSet) {
             user.isAvatarImageSet = true;
             user.avatarImage = data.image;
-            localStorage.setItem (
-              "chat-app-user",
-              JSON.stringify(user)
-            );
+            // localStorage.setItem (
+            //   "chat-app-user",
+            //   JSON.stringify(user)
+            // );
             navigate("/");
           } else {
             toast.error("Error setting avatar. Please try again.", toastOptions);
